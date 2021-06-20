@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import './Navbar.css';
@@ -6,6 +6,29 @@ import './Navbar.css';
 const Navbar = () => {
     
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    const [isEmployer, setIsEmployer] = useState(false);
+
+    useEffect(() => {
+        fetch('http://localhost:4000/isAdmin', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ email: loggedInUser.email })
+        })
+            .then(res => res.json())
+            .then(data => setIsAdmin(data));
+    }, []);
+
+    useEffect(() => {
+        fetch('http://localhost:4000/isEmployer', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ email: loggedInUser.email })
+        })
+            .then(res => res.json())
+            .then(data => setIsEmployer(data));
+    }, []);
     
     return (
         <nav className="navbar navbar-expand-lg navbar-light py-3" style={{backgroundColor:'#f8f9fa'}}>
@@ -19,12 +42,16 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link to="/home" className="nav-link me-5 active" aria-current="page">Home</Link>
                         </li>
-                        <li className="nav-item">
+                        {
+                            (isEmployer || isAdmin) && <li className="nav-item">
                             <Link to="/addJob" className="nav-link me-5">Dashboard</Link>
                         </li>
-                        <li className="nav-item">
+                        }
+                        {
+                            isAdmin && <li className="nav-item">
                             <Link to="/pendingJob" className="nav-link me-5">Admin</Link>
                         </li>
+                        }
                     </ul>
                     <Link to="/login" >
                         {
