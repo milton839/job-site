@@ -17,7 +17,12 @@ const AddJob = () => {
             company: info.company,
             location: info.location,
             experience: info.experience,
+            vacancy: info.vacancy,
+            jobStatus: info.jobStatus,
             description: info.description,
+            education: info.education,
+            salary: info.salary,
+            benefits: info.benefits,
         }
 
         const url = `http://localhost:4000/addJob`;
@@ -45,19 +50,34 @@ const AddJob = () => {
                     <h2 className="text-brand">Add a Job</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <input onBlur={handleBlur} type="text" className="form-control" name="title" placeholder="Job Title" />
+                            <input onBlur={handleBlur} type="text" className="form-control" name="title" placeholder="Job Title"  required />
                         </div>
                         <div className="form-group">
-                            <input onBlur={handleBlur} type="text" className="form-control" name="company" placeholder="Company Name" />
+                            <input onBlur={handleBlur} type="text" className="form-control" name="company" placeholder="Company Name"  required />
                         </div>
                         <div className="form-group">
-                            <input onBlur={handleBlur} type="text" className="form-control" name="location" placeholder="Job Location" />
+                            <input onBlur={handleBlur} type="text" className="form-control" name="location" placeholder="Job Location"  required />
                         </div>
                         <div className="form-group">
-                            <input onBlur={handleBlur} type="text" className="form-control" name="experience" placeholder="Experience" />
+                            <input onBlur={handleBlur} type="text" className="form-control" name="experience" placeholder="Experience"  required />
                         </div>
                         <div className="form-group">
-                            <input onBlur={handleBlur} type="text" className="form-control" name="description" placeholder="Job Description" />
+                            <input onBlur={handleBlur} type="text" className="form-control" name="vacancy" placeholder="Total vacancy"  required />
+                        </div>
+                        <div className="form-group">
+                            <input onBlur={handleBlur} type="text" className="form-control" name="jobStatus" placeholder="Job Status"  required />
+                        </div>
+                        <div className="form-group">
+                            <textarea onBlur={handleBlur} type="text" className="form-control" name="description" placeholder="Job Description" required ></textarea>
+                        </div>
+                        <div className="form-group">
+                            <input onBlur={handleBlur} type="text" className="form-control" name="education" placeholder="Education Recuirements"  required />
+                        </div>
+                        <div className="form-group">
+                            <input onBlur={handleBlur} type="text" className="form-control" name="salary" placeholder="Job Salary"  required />
+                        </div>
+                        <div className="form-group">
+                            <input onBlur={handleBlur} type="text" className="form-control" name="benefits" placeholder="Job Benefits"  required />
                         </div>
                         <button type="submit" className="btn btn-primary">Submit</button>
                     </form>

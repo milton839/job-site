@@ -1,9 +1,9 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyDtCJjTYdYfV6tMblqmXwlXkyYaVHupm0Y",
-    authDomain: "w3s-cloud.firebaseapp.com",
-    projectId: "w3s-cloud",
-    storageBucket: "w3s-cloud.appspot.com",
-    messagingSenderId: "1065724787105",
-    appId: "1:1065724787105:web:96cd248b422e8b6991f3e0"
-  };
-  export default firebaseConfig;
+  apiKey: "AIzaSyBd9vwy4iCAPnXjZ2ot4f98SkalOY4CPpU",
+  authDomain: "job-hunting-f2e30.firebaseapp.com",
+  projectId: "job-hunting-f2e30",
+  storageBucket: "job-hunting-f2e30.appspot.com",
+  messagingSenderId: "752870317848",
+  appId: "1:752870317848:web:a588f9752011532b21086d"
+};
+export default firebaseConfig;

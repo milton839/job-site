@@ -13,7 +13,7 @@ const Jobs = () => {
     console.log(jobsData)
     
     return (
-        <section className="container">
+        <section className="container mb-5">
             <div className="row">
                     {
                         jobsData.map(job => <Job job={job}></Job>)

@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { UserContext } from '../../../App';
 import Header from '../Header/Header';
 
+
 const JobDetails = () => {
+
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     const [jobsData, setJobsData] = useState([]);
 
@@ -26,14 +30,16 @@ const JobDetails = () => {
                         <div class="card-body">
                             <h3 class="card-title" style={{color:'#2B882F'}}>{selectJobs?.title}</h3>
                             <h5>{selectJobs?.company}</h5>
-                            <h5>Vacancy:<br></br><span className="text-center">02</span></h5>
-                            <h5>Employment Status<br></br><span>Full-time</span></h5>
-                            <h5>Educational Requirements</h5>
-                            <h5>Experience Requirements</h5>
-                            <h5>Job Location</h5>
-                            <h5>Salary</h5>
+                            <h5>Vacancy:<br></br><span className="text-center">{selectJobs?.vacancy}</span></h5>
+                            <h5>Employment Status<br></br><span>{selectJobs?.jobStatus}</span></h5>
+                            <h5>Educational Requirements<br></br><span>{selectJobs?.education}</span></h5>
+                            <h5>Experience Requirements<br></br><span>{selectJobs?.experience}</span></h5>
+                            <h5>Job Location<br></br><span>{selectJobs?.location}</span></h5>
+                            <h5>Salary<br></br><span>{selectJobs?.salary}</span></h5>
                             <h5>Compensation & Other Benefits</h5>
-                            <button className="btn btn-primary">Apply the job</button>
+                            <Link to="/applyForm">
+                                <button className="btn btn-primary">Apply the job</button>
+                            </Link>
                         </div>
                     </div>
                 </div>

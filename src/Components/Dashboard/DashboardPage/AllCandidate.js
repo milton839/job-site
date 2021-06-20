@@ -1,15 +1,17 @@
 import React from 'react';
 
-const LeadView = (props) => {
-    const {name, email, phone} = props.lead;
+const AllCandidate = (props) => {
+    const {name, email, phone, position, salary} = props.candidate;
     return (
         <tr>
             <td>{name}</td>
             <td>{email}</td>
+            <td>{position}</td>
             <td>{phone}</td>
+            <td>{salary}</td>
             <td>{(new Date()).getFullYear()}</td>
         </tr>
     );
 };
 
-export default LeadView;
+export default AllCandidate;

@@ -5,7 +5,7 @@ import * as FaIcons from "react-icons/fa";
 import * as MdIcons from "react-icons/md";
 import { Link } from 'react-router-dom';
 import manImage from '../../../images/man.jpg';
-import './DashboardNav.css';
+import './AdminNav.css';
 
 const sidebarData = [
     {
@@ -15,14 +15,14 @@ const sidebarData = [
         cName:'nav-text',
     },
     {
-        title:'Add Job',
-        path: '/addJob',
+        title:'Pending Job',
+        path: '/pendingJob',
         icon:<AiIcons.AiFillPlusSquare/>,
         cName:'nav-text',
     },
     {
-        title:'Candidate List',
-        path: '/candidate',
+        title:'MakeAdmin',
+        path: '/makeAdmin',
         icon:<AiIcons.AiFillContacts/>,
         cName:'nav-text',
     },
@@ -40,7 +40,7 @@ const sidebarData = [
     },
 ]
 
-const DashboardNav = () => {
+const AdminNav = () => {
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => {
@@ -87,4 +87,4 @@ const DashboardNav = () => {
     );
 };
 
-export default DashboardNav;
+export default AdminNav;

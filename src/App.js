@@ -4,15 +4,18 @@ import {
   BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
 import './App.css';
+import MakeAdmin from './Components/Admin/AdminPage/MakeAdmin';
+import PendingJob from './Components/Admin/AdminPage/PendingJob';
 import Accounts from './Components/Dashboard/DashboardPage/Accounts';
 import AddJob from './Components/Dashboard/DashboardPage/AddJob';
-import Contacts from './Components/Dashboard/DashboardPage/Contacts';
-import Deals from './Components/Dashboard/DashboardPage/Deals';
+import CandidateList from './Components/Dashboard/DashboardPage/CandidateList';
 import EditProfile from './Components/Dashboard/EditProfile/EditProfile';
+import ApplyForm from './Components/Home/Home/ApplyForm';
 import Home from './Components/Home/Home/Home';
 import JobDetails from './Components/Home/Home/JobDetails';
 import Login from './Components/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
 
@@ -22,26 +25,32 @@ function App() {
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Switch>
-          <Route exact path="/">
+          <PrivateRoute exact path="/">
             <Home />
-          </Route>
-          <Route path="/home">
+          </PrivateRoute>
+          <PrivateRoute path="/home">
             <Home />
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/jobDetails/:jobId">
+          <PrivateRoute path="/jobDetails/:jobId">
             <JobDetails />
-          </Route>
+          </PrivateRoute>
           <Route path="/addJob">
             <AddJob />
           </Route>
-          <Route path="/contacts">
-            <Contacts></Contacts>
+          <Route path="/applyForm">
+            <ApplyForm />
           </Route>
-          <Route path="/deals">
-            <Deals></Deals>
+          <Route path="/candidate">
+            <CandidateList />
+          </Route>
+          <Route path="/pendingJob">
+            <PendingJob />
+          </Route>
+          <Route path="/makeAdmin">
+            <MakeAdmin />
           </Route>
           <Route path="/accounts">
             <Accounts></Accounts>
