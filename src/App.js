@@ -1,20 +1,17 @@
 
-import './App.css';
+import { createContext, useState } from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
+  BrowserRouter as Router, Route, Switch
 } from "react-router-dom";
-import Home from './Components/Home/Home/Home';
-import DashboardNav from './Components/Dashboard/Dashboard/DashboardNav';
-import Login from './Components/Login/Login';
-import { createContext } from 'react';
-import { useState } from 'react';
-import Leads from './Components/Dashboard/DashboardPage/Leads';
+import './App.css';
+import Accounts from './Components/Dashboard/DashboardPage/Accounts';
+import AddJob from './Components/Dashboard/DashboardPage/AddJob';
 import Contacts from './Components/Dashboard/DashboardPage/Contacts';
 import Deals from './Components/Dashboard/DashboardPage/Deals';
-import Accounts from './Components/Dashboard/DashboardPage/Accounts';
 import EditProfile from './Components/Dashboard/EditProfile/EditProfile';
+import Home from './Components/Home/Home/Home';
+import JobDetails from './Components/Home/Home/JobDetails';
+import Login from './Components/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
 
 export const UserContext = createContext();
@@ -26,19 +23,19 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home></Home>
+            <Home />
           </Route>
           <Route path="/home">
-            <Home></Home>
+            <Home />
           </Route>
           <Route path="/login">
-            <Login></Login>
+            <Login />
           </Route>
-          <Route path="/dashboard">
-            <DashboardNav></DashboardNav>
+          <Route path="/jobDetails/:jobId">
+            <JobDetails />
           </Route>
-          <Route path="/leads">
-            <Leads></Leads>
+          <Route path="/addJob">
+            <AddJob />
           </Route>
           <Route path="/contacts">
             <Contacts></Contacts>
@@ -50,7 +47,7 @@ function App() {
             <Accounts></Accounts>
           </Route>
           <Route path="/edit-profile">
-            <EditProfile></EditProfile>
+            <EditProfile />
           </Route>
           <Route path="*">
             <NotFound></NotFound>

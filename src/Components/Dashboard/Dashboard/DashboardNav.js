@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import * as FaIcons  from "react-icons/fa";
-import * as AiIcons  from "react-icons/ai";
-import * as SiIcons  from "react-icons/si";
-import * as MdIcons  from "react-icons/md";
-import {Link} from 'react-router-dom';
-import './DashboardNav.css';
-import {IconContext} from 'react-icons';
+import { IconContext } from 'react-icons';
+import * as AiIcons from "react-icons/ai";
+import * as FaIcons from "react-icons/fa";
+import * as MdIcons from "react-icons/md";
+import { Link } from 'react-router-dom';
 import manImage from '../../../images/man.jpg';
+import './DashboardNav.css';
 
 const sidebarData = [
     {
@@ -16,9 +15,9 @@ const sidebarData = [
         cName:'nav-text',
     },
     {
-        title:'Leads',
-        path: '/leads',
-        icon:<SiIcons.SiGoogleads/>,
+        title:'Add Job',
+        path: '/addJob',
+        icon:<AiIcons.AiFillPlusSquare/>,
         cName:'nav-text',
     },
     {

@@ -1,5 +1,4 @@
-import axios from 'axios';
-import React, { useEffect } from 'react';
+import React from 'react';
 import DashboardNav from '../Dashboard/DashboardNav';
 import AccountView from './AccountView';
 
@@ -43,40 +42,7 @@ const accountData = [
 
 const Accounts = () => {
 
-    const data = {
-        "refresh_token":"1000.6e55763294607bfec85b9ea428e8dc39.ecc58606f9850e31eae5e307b87a0089",
-        "client_id":"1000.78W097QBVUA84L1MQ05DAJGQ1AKYHT",
-        "client_secret":"9c06d2ac404eed6a10e8a098a2afff4c38518b02b9",
-        "grant_type":"refresh_token"
-    }
-
-    // useEffect(()=>{
-        const url = `https://accounts.zoho.com/oauth/v2/token`;
-        fetch(url,{
-            method:'POST',
-            headers:{
-                'Content-Type' : 'application/json',
-            },
-            body:JSON.stringify(data)
-        })
-        .then(res =>res.json())
-        .then(res => {
-            if(res){
-                console.log(res)
-            }
-        });
-    // })
-
-    // useEffect(() => {
-    //     const url = `https://jsonplaceholder.typicode.com/users`;
-    //     fetch(url)
-    //     .then(res => res.json())
-    //     .then(res => {
-    //         if(res){
-    //             console.log(res)
-    //         }
-    //     });
-    // },[])
+    
 
     
     return (
