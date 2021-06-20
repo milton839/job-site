@@ -6,10 +6,8 @@ import {
 import './App.css';
 import MakeAdmin from './Components/Admin/AdminPage/MakeAdmin';
 import PendingJob from './Components/Admin/AdminPage/PendingJob';
-import Accounts from './Components/Dashboard/DashboardPage/Accounts';
 import AddJob from './Components/Dashboard/DashboardPage/AddJob';
 import CandidateList from './Components/Dashboard/DashboardPage/CandidateList';
-import EditProfile from './Components/Dashboard/EditProfile/EditProfile';
 import ApplyForm from './Components/Home/Home/ApplyForm';
 import Home from './Components/Home/Home/Home';
 import JobDetails from './Components/Home/Home/JobDetails';
@@ -37,27 +35,21 @@ function App() {
           <PrivateRoute path="/jobDetails/:jobId">
             <JobDetails />
           </PrivateRoute>
-          <Route path="/addJob">
+          <PrivateRoute path="/addJob">
             <AddJob />
-          </Route>
-          <Route path="/applyForm">
+          </PrivateRoute>
+          <PrivateRoute path="/applyForm">
             <ApplyForm />
-          </Route>
-          <Route path="/candidate">
+          </PrivateRoute>
+          <PrivateRoute path="/candidate">
             <CandidateList />
-          </Route>
-          <Route path="/pendingJob">
+          </PrivateRoute>
+          <PrivateRoute path="/pendingJob">
             <PendingJob />
-          </Route>
-          <Route path="/makeAdmin">
+          </PrivateRoute>
+          <PrivateRoute path="/makeAdmin">
             <MakeAdmin />
-          </Route>
-          <Route path="/accounts">
-            <Accounts></Accounts>
-          </Route>
-          <Route path="/edit-profile">
-            <EditProfile />
-          </Route>
+          </PrivateRoute>
           <Route path="*">
             <NotFound></NotFound>
           </Route>

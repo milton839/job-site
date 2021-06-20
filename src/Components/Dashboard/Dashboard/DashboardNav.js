@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { IconContext } from 'react-icons';
 import * as AiIcons from "react-icons/ai";
 import * as FaIcons from "react-icons/fa";
-import * as MdIcons from "react-icons/md";
 import { Link } from 'react-router-dom';
 import manImage from '../../../images/man.jpg';
 import './DashboardNav.css';
@@ -26,18 +25,18 @@ const sidebarData = [
         icon:<AiIcons.AiFillContacts/>,
         cName:'nav-text',
     },
-    {
-        title:'Deals',
-        path: '/deals',
-        icon:<FaIcons.FaIdeal/>,
-        cName:'nav-text',
-    },
-    {
-        title:'Accounts',
-        path: '/accounts',
-        icon:<MdIcons.MdAccountCircle/>,
-        cName:'nav-text',
-    },
+    // {
+    //     title:'Deals',
+    //     path: '/deals',
+    //     icon:<FaIcons.FaIdeal/>,
+    //     cName:'nav-text',
+    // },
+    // {
+    //     title:'Accounts',
+    //     path: '/accounts',
+    //     icon:<MdIcons.MdAccountCircle/>,
+    //     cName:'nav-text',
+    // },
 ]
 
 const DashboardNav = () => {

@@ -23,6 +23,8 @@ const Login = () => {
     const history = useHistory();
     const location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
+
+    const [info, setInfo] = useState([]);
     
     const [newUser, setNewUser] = useState(false);
     const [user, setUser] = useState({
@@ -30,6 +32,7 @@ const Login = () => {
         name: '',
         email: '',
         password: '',
+        phone: '',
         error: '',
         success: false,
         image: ''
@@ -75,6 +78,11 @@ const Login = () => {
     }
 
     const handleBlur =(event) =>{
+        console.log(event.target.name, event.target.value);
+
+        const newInfo = { ...info };
+        newInfo[event.target.name] = event.target.value;
+        setInfo(newInfo);
         
         let isFieldValid = true;
         if(event.target.name === "email"){
@@ -93,12 +101,15 @@ const Login = () => {
         }
     }
 
+    console.log(info);
+
     const handleSubmit =(event) =>{
         if(newUser && user.email && user.password){
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
             .then((result) => {
                 console.log(result)
                 const newUserInfo = {...user};
+                console.log(newUserInfo)
                 newUserInfo.error = '';
                 newUserInfo.success = true;
                 setUser(newUserInfo);
@@ -110,6 +121,23 @@ const Login = () => {
                 setUser(newUserInfo);
             });
         }
+
+        const employerData ={
+            name: info.name,
+            email: info.email,
+        }
+
+        const url = `http://localhost:4000/addEmployer`;
+        fetch(url,{
+            method:'POST',
+            headers:{
+                'Content-Type' : 'application/json'
+            },
+            body:JSON.stringify(employerData)
+        })
+        .then(res => {
+            console.log(res);
+        });
 
         if(!newUser && user.email && user.password){
             firebase.auth().signInWithEmailAndPassword(user.email, user.password)
@@ -173,8 +201,12 @@ const Login = () => {
                                         <input onBlur={handleBlur} type="password" className="form-control p-4 rounded-pill" name="confirm-password" placeholder="Confirm Password" required/>
                                     </div>
                                     }
-                                    <input type="checkbox" name="employer" value="Bike"/>
-                                    <label for="vehicle1"> I have a bike</label>
+                                    {
+                                        newUser && <div>
+                                            <input type="checkbox" onChange={()=>setEmployer(!employer)} name="employer" value="Bike"/>
+                                            <label for="vehicle1" className="ms-2"> For Employer Account</label>
+                                        </div>
+                                    }
                                     {
                                         newUser ? <p>If you have any account?<span onClick={() => setNewUser(!newUser)} style={{cursor:"pointer",color:"tomato"}}>Sign In</span></p> : <p>If you don't have any account? <span onClick={() => setNewUser(!newUser)} style={{cursor:"pointer",color:"tomato"}}>Sign Up</span></p>
                                     }
