@@ -4,7 +4,7 @@ import * as HiIcons from "react-icons/hi";
 import { Link } from 'react-router-dom';
 
 const Job = (props) => {
-    const {title, company, location, experience, _id} = props.job;
+    const {title, company, location, experience, _id, jobPostStatus} = props.job;
     return (
         <div className="col-md-6 mt-2">
             <div className="card" style={{width: '33rem', backgroundColor:'#f5f5f5'}}>

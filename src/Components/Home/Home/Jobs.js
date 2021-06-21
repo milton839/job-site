@@ -25,7 +25,7 @@ const Jobs = () => {
             </div>
             <div className="row">
                     {
-                        jobsData.map(job => <Job job={job}></Job>)
+                        jobsData.map(job => (job.jobPostStatus==='Approved') && <Job job={job}></Job>)
                     }
             </div>
         </section>
