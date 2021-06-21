@@ -19,7 +19,7 @@ const CandidateList = () => {
                 <DashboardNav></DashboardNav>
             </div>
             <div className="text-center" style={{margin:'20px 40px 40px 290px'}}>
-                <h3>Total Records: {candidate.length}</h3>
+                <h3>Total Candidate: {candidate.length}</h3>
                 <table className="table table-striped table-hover">
                     <thead>
                         <th>Name</th>

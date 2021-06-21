@@ -18,6 +18,7 @@ const PendingJob = () => {
                 <AdminNav />
             </div>
             <div className="text-center" style={{margin:'20px 40px 40px 290px'}}>
+                <h2>Total Jobs: {pendingJobs.length}</h2>
                 <table className="table table-striped table-hover">
                     <thead>
                         <th>Title</th>
