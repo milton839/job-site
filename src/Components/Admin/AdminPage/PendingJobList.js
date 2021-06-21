@@ -46,6 +46,7 @@ console.log(editStatus)
                 <select name="jobPostStatus" onBlur={handleStatusChange}>
                     <option value={jobPostStatus}>{jobPostStatus}</option>
                     <option value="Approved">Approved</option>
+                    <option value="Pending">Pending</option>
                 </select>
                 <button
                     className="ms-2 btn btn-primary"
