@@ -179,6 +179,7 @@ const Login = () => {
                                 }
                             </div>
                             <div className="card-body mx-5">
+                                <h2>Only for Employer</h2>
                                 <form className="" onSubmit={handleSubmit}>
                                     {
                                         newUser && <div className="mb-3 ">
@@ -201,12 +202,12 @@ const Login = () => {
                                         <input onBlur={handleBlur} type="password" className="form-control p-4 rounded-pill" name="confirm-password" placeholder="Confirm Password" required/>
                                     </div>
                                     }
-                                    {
+                                    {/* {
                                         newUser && <div>
                                             <input type="checkbox" onChange={()=>setEmployer(!employer)} name="employer" value="Bike"/>
                                             <label for="vehicle1" className="ms-2"> For Employer Account</label>
                                         </div>
-                                    }
+                                    } */}
                                     {
                                         newUser ? <p>If you have any account?<span onClick={() => setNewUser(!newUser)} style={{cursor:"pointer",color:"tomato"}}>Sign In</span></p> : <p>If you don't have any account? <span onClick={() => setNewUser(!newUser)} style={{cursor:"pointer",color:"tomato"}}>Sign Up</span></p>
                                     }
@@ -219,9 +220,12 @@ const Login = () => {
                                 {
                                     user.success ? <p style = {{ color:'green' }}>Your account {newUser ? 'created' : 'login'} successfully!</p> :  <p style = {{ color:'red' }}>{user.error}</p>
                                 }
-                                {
-                                    user.isSignedIn ? <Button onClick = {handleGoogleSignOut} style={{ width:'100%',backgroundColor:'tomato',color:'white',border:'0',padding:'20px 0 20px 0', marginBottom:'50px' }}><FaGoogle /> Google Sign Out</Button> : <button onClick = {handleGoogleSignIn} style={{ width:'100%',backgroundColor:'tomato',color:'white',border:'0',padding:'20px 0 20px 0', marginBottom:'50px' }}><FaGoogle /> Google Sign In</button>
-                                }
+                                <div className="mb-5">
+                                    <h2>All users Log in this system</h2>
+                                    {
+                                        user.isSignedIn ? <Button onClick = {handleGoogleSignOut} style={{ width:'100%',backgroundColor:'tomato',color:'white',border:'0',padding:'20px 0 20px 0', marginBottom:'50px' }}><FaGoogle /> Google Sign Out</Button> : <button onClick = {handleGoogleSignIn} style={{ width:'100%',backgroundColor:'tomato',color:'white',border:'0',padding:'20px 0 20px 0', marginBottom:'50px' }}><FaGoogle /> Google Sign In</button>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>

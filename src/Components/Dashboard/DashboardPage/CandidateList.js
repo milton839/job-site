@@ -26,6 +26,7 @@ const CandidateList = () => {
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Position</th>
+                        <th>Company</th>
                         <th>Salary</th>
                         <th>Created Time</th>
                     </thead>

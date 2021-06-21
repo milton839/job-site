@@ -21,6 +21,7 @@ const ApplyForm = () => {
             phone: info.phone,
             salary: info.salary,
             position: info.position,
+            company: info.company,
         }
         console.log(applyData);
 
@@ -57,6 +58,9 @@ const ApplyForm = () => {
                         </div>
                         <div className="form-group">
                             <input onBlur={handleBlur} type="text" className="form-control" name="position" placeholder="Your Suitable Position" required />
+                        </div>
+                        <div className="form-group">
+                            <input onBlur={handleBlur} type="text" className="form-control" name="company" placeholder="Company name" required />
                         </div>
                         <div className="form-group">
                             <input onBlur={handleBlur} type="number" className="form-control" name="phone" placeholder="Your Phone Number" required />

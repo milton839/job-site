@@ -4,6 +4,9 @@ import DashboardNav from '../Dashboard/DashboardNav';
 const AddJob = () => {
 
     const [info, setInfo] = useState({});
+    
+    const [jobPostStatus, setJobPostStatus] = useState("Pending");
+    console.log(jobPostStatus)
 
     const handleBlur = event => {
         const newInfo = { ...info };
@@ -23,6 +26,7 @@ const AddJob = () => {
             education: info.education,
             salary: info.salary,
             benefits: info.benefits,
+            jobPostStatus: jobPostStatus,
         }
 
         const url = `http://localhost:4000/addJob`;

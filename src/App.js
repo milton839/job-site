@@ -13,6 +13,7 @@ import Home from './Components/Home/Home/Home';
 import JobDetails from './Components/Home/Home/JobDetails';
 import Login from './Components/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
+import PaymentEmployer from './Components/PaymentEmployer/PaymentEmployer';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
@@ -49,6 +50,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/makeAdmin">
             <MakeAdmin />
+          </PrivateRoute>
+          <PrivateRoute path="/payment">
+            <PaymentEmployer />
           </PrivateRoute>
           <Route path="*">
             <NotFound></NotFound>
