@@ -48,11 +48,12 @@ console.log(editStatus)
                     <option value="Approved">Approved</option>
                 </select>
                 <button
+                    className="ms-2 btn btn-primary"
                     onClick={()=>handleSubmit(_id)}
                     type="submit"
                     value="ok"
                 >
-                        ok{" "}
+                        Update{" "}
                 </button>
             </td>
             <td>{(new Date()).getFullYear()}</td>

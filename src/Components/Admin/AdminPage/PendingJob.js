@@ -30,8 +30,8 @@ const PendingJob = () => {
                     </thead>
                     <tbody>
                         {
-                        pendingJobs.map(pending => <PendingJobList pending={pending}></PendingJobList>)
-                    }
+                            pendingJobs.map(pending => <PendingJobList pending={pending}></PendingJobList>)
+                        }
                     </tbody>
                 </table>
             </div>
