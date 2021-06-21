@@ -1,10 +1,7 @@
-import React, { useContext, useState } from 'react';
-import { UserContext } from '../../../App';
+import React, { useState } from 'react';
 import Navbar from '../../Shared/Navbar/Navbar';
 
 const ApplyForm = () => {
-
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     const [info, setInfo] = useState({});
 
