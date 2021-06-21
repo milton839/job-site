@@ -48,7 +48,7 @@ const Navbar = () => {
                         </li>
                         }
                         {
-                            (isEmployer) && <li className="nav-item">
+                            (isEmployer || isAdmin) && <li className="nav-item">
                             <Link to="/payment" className="nav-link me-5">Payment System</Link>
                         </li>
                         }
