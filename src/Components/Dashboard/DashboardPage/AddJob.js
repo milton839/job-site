@@ -29,7 +29,7 @@ const AddJob = () => {
             jobPostStatus: jobPostStatus,
         }
 
-        const url = `http://localhost:4000/addJob`;
+        const url = `https://job-hunting25.herokuapp.com/addJob`;
         fetch(url,{
             method:'POST',
             headers:{

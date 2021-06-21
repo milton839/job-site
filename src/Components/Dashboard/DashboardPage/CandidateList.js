@@ -7,7 +7,7 @@ const CandidateList = () => {
     const [candidate, setCandidate] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:4000/candidate',)
+        fetch('https://job-hunting25.herokuapp.com/candidate',)
         .then(response => response.json())
         .then(data => setCandidate(data))
     },[]);

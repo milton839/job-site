@@ -7,7 +7,7 @@ const Jobs = () => {
     const [search, setSearch] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:4000/jobsFilter?search='+search)
+        fetch('https://job-hunting25.herokuapp.com/jobsFilter?search='+search)
         .then(response => response.json())
         .then(data => setJobsData(data))
     },[search]);

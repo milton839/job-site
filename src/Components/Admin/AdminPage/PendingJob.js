@@ -7,7 +7,7 @@ const PendingJob = () => {
     const [pendingJobs, setPendingJobs] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:4000/jobs',)
+        fetch('https://job-hunting25.herokuapp.com/jobs',)
         .then(response => response.json())
         .then(data => setPendingJobs(data))
     },[]);

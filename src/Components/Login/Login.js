@@ -127,7 +127,7 @@ const Login = () => {
             email: info.email,
         }
 
-        const url = `http://localhost:4000/addEmployer`;
+        const url = `https://job-hunting25.herokuapp.com/addEmployer`;
         fetch(url,{
             method:'POST',
             headers:{

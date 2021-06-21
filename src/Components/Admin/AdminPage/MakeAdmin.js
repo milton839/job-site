@@ -18,7 +18,7 @@ const MakeAdmin = () => {
             email: info.email,
         }
 
-        const url = `http://localhost:4000/addAdmin`;
+        const url = `https://job-hunting25.herokuapp.com/addAdmin`;
         fetch(url,{
             method:'POST',
             headers:{

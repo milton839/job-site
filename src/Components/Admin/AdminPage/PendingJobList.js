@@ -21,7 +21,7 @@ console.log(editStatus)
         // console.log(jobPostStatus)
         console.log(id)
 
-        fetch(`http://localhost:4000/update/${id}`,{
+        fetch(`https://job-hunting25.herokuapp.com/update/${id}`,{
                 method:'PATCH',
                 headers:{'content-type':'application/json'},
                 body:JSON.stringify(editStatus)

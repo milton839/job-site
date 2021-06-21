@@ -25,7 +25,7 @@ const ApplyForm = () => {
         }
         console.log(applyData);
 
-        const url = `http://localhost:4000/jobApply`;
+        const url = `https://job-hunting25.herokuapp.com/jobApply`;
         fetch(url,{
             method:'POST',
             headers:{
