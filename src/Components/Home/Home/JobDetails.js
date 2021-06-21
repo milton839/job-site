@@ -35,8 +35,9 @@ const JobDetails = () => {
                             <h5>Educational Requirements<br></br><span>{selectJobs?.education}</span></h5>
                             <h5>Experience Requirements<br></br><span>{selectJobs?.experience}</span></h5>
                             <h5>Job Location<br></br><span>{selectJobs?.location}</span></h5>
+                            <h5>Job Description<br></br><span>{selectJobs?.description}</span></h5>
                             <h5>Salary<br></br><span>{selectJobs?.salary}</span></h5>
-                            <h5>Compensation & Other Benefits</h5>
+                            <h5>Compensation & Other Benefits<br></br><span>{selectJobs?.benefits}</span></h5>
                             <Link to="/applyForm">
                                 <button className="btn btn-primary">Apply the job</button>
                             </Link>

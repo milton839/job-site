@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 const Job = (props) => {
     const {title, company, location, experience, _id, jobPostStatus} = props.job;
     return (
-        <div className="col-md-6 mt-2">
-            <div className="card" style={{width: '33rem', backgroundColor:'#f5f5f5'}}>
+        <div className="col-md-6 col-xl-6 col-sm-10 col-xs-10 col-lg-6 col-10 mt-2">
+            <div className="card rounded" style={{width: '33rem', backgroundColor:'#f5f5f5'}}>
                 <Link to={`/jobDetails/${_id}`} style={{textDecoration: 'none'}}>
                     <div className="card-body">
                         <h5 className="text-uppercase" style={{color:'#348334'}}>{title}</h5>
