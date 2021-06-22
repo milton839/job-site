@@ -21,7 +21,7 @@ const Navbar = () => {
     }, []);
 
     useEffect(() => {
-        fetch('https://job-hunting25.herokuapp.com/isEmployer', {
+        fetch('https://job-hunting25.herokuapp.com/employerPremiumCollection', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })

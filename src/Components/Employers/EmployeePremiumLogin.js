@@ -125,7 +125,7 @@ const EmployeePremiumLogin = () => {
             email: info.email,
         }
 
-        const url = `https://job-hunting25.herokuapp.com/addEmployer`;
+        const url = `https://job-hunting25.herokuapp.com/addEmployerPremium`;
         fetch(url,{
             method:'POST',
             headers:{

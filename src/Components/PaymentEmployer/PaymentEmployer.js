@@ -40,7 +40,7 @@ const PaymentEmployer = () => {
               <div className="row m-auto d-flex justify-content-center">
                 <div class="card" style={{width: '50rem'}}>
                     <div class="card-body">
-                      <h2 className="text-center">You have to pay: {employeepath}</h2>
+                      {/* <h2 className="text-center">You have to pay: {employeepath}</h2> */}
                       <h2 className="text-center mt-3 pb-3" style={{color:'#242A33',fontSize:'25px', fontWeight:'bold'}}>Stripe Payment Method</h2>
                       <div className="row d-flex justify-content-center">
                         <div className="col-md-6 ">
