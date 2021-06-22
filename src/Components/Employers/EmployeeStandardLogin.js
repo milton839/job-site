@@ -125,7 +125,7 @@ const EmployeeStandardLogin = () => {
             email: info.email,
         }
 
-        const url = `https://job-hunting25.herokuapp.com/addEmployer`;
+        const url = `https://job-hunting25.herokuapp.com/addStandardEmployer`;
         fetch(url,{
             method:'POST',
             headers:{

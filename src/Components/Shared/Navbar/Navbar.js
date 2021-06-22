@@ -8,7 +8,9 @@ const Navbar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [isAdmin, setIsAdmin] = useState(false);
 
-    const [isEmployer, setIsEmployer] = useState(false);
+    const [isPremiumEmployer, setIsPremiumEmployer] = useState(false);
+    const [isStandardEmployer, setIsStandardEmployer] = useState(false);
+    const [isBasicEmployer, setIsBasicEmployer] = useState(false);
 
     useEffect(() => {
         fetch('https://job-hunting25.herokuapp.com/isAdmin', {
@@ -21,13 +23,23 @@ const Navbar = () => {
     }, []);
 
     useEffect(() => {
-        fetch('https://job-hunting25.herokuapp.com/employerPremiumCollection', {
+        fetch('https://job-hunting25.herokuapp.com/getPremiumEmployer', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
         })
             .then(res => res.json())
-            .then(data => setIsEmployer(data));
+            .then(data => setIsPremiumEmployer(data));
+    }, []);
+
+    useEffect(() => {
+        fetch('https://job-hunting25.herokuapp.com/getStandardEmployer', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ email: loggedInUser.email })
+        })
+            .then(res => res.json())
+            .then(data => setIsPremiumEmployer(data));
     }, []);
     
     return (
@@ -46,7 +58,7 @@ const Navbar = () => {
                             <Link to="/employers" className="nav-link me-5">For Employers</Link>
                         </li>
                         {
-                            (isEmployer || isAdmin) && <li className="nav-item">
+                            (isPremiumEmployer || isAdmin) && <li className="nav-item">
                             <Link to="/addJob" className="nav-link me-5">Dashboard</Link>
                         </li>
                         }
