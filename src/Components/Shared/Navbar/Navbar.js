@@ -41,6 +41,16 @@ const Navbar = () => {
             .then(res => res.json())
             .then(data => setIsPremiumEmployer(data));
     }, []);
+
+    useEffect(() => {
+        fetch('https://job-hunting25.herokuapp.com/getBasicEmployer', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ email: loggedInUser.email })
+        })
+            .then(res => res.json())
+            .then(data => setIsPremiumEmployer(data));
+    }, []);
     
     return (
         <nav className="navbar navbar-expand-lg navbar-light py-3" style={{backgroundColor:'#f8f9fa'}}>
@@ -58,7 +68,7 @@ const Navbar = () => {
                             <Link to="/employers" className="nav-link me-5">For Employers</Link>
                         </li>
                         {
-                            (isPremiumEmployer || isAdmin) && <li className="nav-item">
+                            (isPremiumEmployer || isStandardEmployer || isBasicEmployer || isAdmin) && <li className="nav-item">
                             <Link to="/addJob" className="nav-link me-5">Dashboard</Link>
                         </li>
                         }
