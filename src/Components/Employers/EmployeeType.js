@@ -6,16 +6,19 @@ const employeeType = [
         type:'Premium',
         post:'30 hours per month',
         price:'$100',
+        path: 'employeePremiumLogin',
      },
      { 
         type:'Standard',
         post:'20 hours per month',
         price:'$60',
+        path: 'employeeStandardLogin',
      },
      { 
         type:'Basic',
         post:'10 hours per month',
         price:'$35',
+        path: 'employeeBasicLogin',
      },
 ]
 

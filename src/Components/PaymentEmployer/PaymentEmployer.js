@@ -8,7 +8,7 @@ const PaymentEmployer = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-    const {employeePrice} = useParams();
+    const {employeepath} = useParams();
 
     const handlePaymentSuccess = paymentId =>{
       const employeeDetails = {
@@ -40,13 +40,13 @@ const PaymentEmployer = () => {
               <div className="row m-auto d-flex justify-content-center">
                 <div class="card" style={{width: '50rem'}}>
                     <div class="card-body">
-                      <h2 className="text-center">You have to pay: {employeePrice}</h2>
+                      <h2 className="text-center">You have to pay: {employeepath}</h2>
                       <h2 className="text-center mt-3 pb-3" style={{color:'#242A33',fontSize:'25px', fontWeight:'bold'}}>Stripe Payment Method</h2>
                       <div className="row d-flex justify-content-center">
                         <div className="col-md-6 ">
                           <ProcessPayment handlePayment = {handlePaymentSuccess}></ProcessPayment>
                         </div>
-                        <h2 className="text-center">If you already pay for your account <Link to="/employeeLogin">Login</Link></h2>
+                        <h2 className="text-center">If you already pay for your account <Link to={`/${employeepath}`}>Login</Link></h2>
                       </div>
                     </div>
                 </div>

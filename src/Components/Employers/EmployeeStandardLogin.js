@@ -9,7 +9,7 @@ import Navbar from '../Shared/Navbar/Navbar';
 
 
 
-const EmployeeLogin = () => {
+const EmployeeStandardLogin = () => {
     document.title = "Login page";
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -231,4 +231,4 @@ const EmployeeLogin = () => {
     );
 };
 
-export default EmployeeLogin;
+export default EmployeeStandardLogin;

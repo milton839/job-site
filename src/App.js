@@ -8,7 +8,9 @@ import MakeAdmin from './Components/Admin/AdminPage/MakeAdmin';
 import PendingJob from './Components/Admin/AdminPage/PendingJob';
 import AddJob from './Components/Dashboard/DashboardPage/AddJob';
 import CandidateList from './Components/Dashboard/DashboardPage/CandidateList';
-import EmployerLogin from './Components/Employers/EmployeeLogin';
+import EmployeeBasicLogin from './Components/Employers/EmployeeBasicLogin';
+import EmployeePremiumLogin from './Components/Employers/EmployeePremiumLogin';
+import EmployeeStandardLogin from './Components/Employers/EmployeeStandardLogin';
 import Employers from './Components/Employers/Employers';
 import ApplyForm from './Components/Home/Home/ApplyForm';
 import Home from './Components/Home/Home/Home';
@@ -39,11 +41,17 @@ function App() {
           <Route path="/employers">
             <Employers />
           </Route>
-          <Route path="/payment/:employeePrice">
+          <Route path="/payment/:employeepath">
             <PaymentEmployer />
           </Route>
-          <Route path="/employeeLogin">
-            <EmployerLogin />
+          <Route path="/employeePremiumLogin">
+            <EmployeePremiumLogin />
+          </Route>
+          <Route path="/employeeStandardLogin">
+            <EmployeeStandardLogin />
+          </Route>
+          <Route path="/employeeBasicLogin">
+            <EmployeeBasicLogin />
           </Route>
           <PrivateRoute path="/addJob">
             <AddJob />
