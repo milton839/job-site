@@ -1,8 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import React, { useContext, useState } from 'react';
-import { Button } from 'react-bootstrap';
-import { FaGoogle } from 'react-icons/fa';
 import { useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
 import firebaseConfig from '../../firebaseConfig';
@@ -11,7 +9,7 @@ import Navbar from '../Shared/Navbar/Navbar';
 
 
 
-const Login = () => {
+const EmployeeLogin = () => {
     document.title = "Login page";
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -172,10 +170,59 @@ const Login = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6 m-auto pt-3">
-                        <div className="mb-5">
-                            {
-                                user.isSignedIn ? <Button onClick = {handleGoogleSignOut} style={{ width:'100%',backgroundColor:'tomato',color:'white',border:'0',padding:'20px 0 20px 0', marginBottom:'50px' }}><FaGoogle /> Google Sign Out</Button> : <button onClick = {handleGoogleSignIn} style={{ width:'100%',backgroundColor:'tomato',color:'white',border:'0',padding:'20px 0 20px 0', marginBottom:'50px' }}><FaGoogle /> Google Sign In</button>
-                            }
+                        <div className="card sign-in-card" >
+                            <div className="card-header sign-in-head bg-primary text-white text-center">
+                                {
+                                    user ? <h2>Sign In</h2> : <h2>Sign Up</h2>
+                                }
+                            </div>
+                            <div className="card-body mx-5">
+                                <form className="" onSubmit={handleSubmit}>
+                                    {
+                                        newUser && <div className="mb-3 ">
+                                        <input onBlur={handleBlur} type="text" className="form-control p-4 rounded-pill" name="name" placeholder="Full Name" required/>
+                                    </div>
+                                    }
+                                    <div className="mb-3 ">
+                                        <input onBlur={handleBlur} type="email" className="form-control p-4 rounded-pill" name="email" placeholder="Email Address" required/>
+                                    </div>
+                                    {
+                                        employer && <div className="mb-3 ">
+                                        <input onBlur={handleBlur} type="number" className="form-control p-4 rounded-pill" name="phone" placeholder="Your Phone Number" required/>
+                                    </div>
+                                    }
+                                    <div className="mb-3 ">
+                                        <input onBlur={handleBlur} type="password" className="form-control p-4 rounded-pill" name="password" placeholder="Password" required/>
+                                    </div>
+                                    {
+                                        newUser && <div className="mb-3 ">
+                                        <input onBlur={handleBlur} type="password" className="form-control p-4 rounded-pill" name="confirm-password" placeholder="Confirm Password" required/>
+                                    </div>
+                                    }
+                                    {/* {
+                                        newUser && <div>
+                                            <input type="checkbox" onChange={()=>setEmployer(!employer)} name="employer" value="Bike"/>
+                                            <label for="vehicle1" className="ms-2"> For Employer Account</label>
+                                        </div>
+                                    } */}
+                                    {
+                                        newUser ? <p>If you have any account?<span onClick={() => setNewUser(!newUser)} style={{cursor:"pointer",color:"tomato"}}>Sign In</span></p> : <p>If you don't have any account? <span onClick={() => setNewUser(!newUser)} style={{cursor:"pointer",color:"tomato"}}>Sign Up</span></p>
+                                    }
+                                    <div className="d-grid gap-2">
+                                        {
+                                            newUser ? <button className="btn btn-primary rounded-pill p-2" type="submit">Sign Up</button> :<button className="btn btn-primary rounded-pill p-2" type="submit">Sign In</button>
+                                        }
+                                    </div>
+                                </form>
+                                {
+                                    user.success ? <p style = {{ color:'green' }}>Your account {newUser ? 'created' : 'login'} successfully!</p> :  <p style = {{ color:'red' }}>{user.error}</p>
+                                }
+                                {/* <div className="mb-5">
+                                    {
+                                        user.isSignedIn ? <Button onClick = {handleGoogleSignOut} style={{ width:'100%',backgroundColor:'tomato',color:'white',border:'0',padding:'20px 0 20px 0', marginBottom:'50px' }}><FaGoogle /> Google Sign Out</Button> : <button onClick = {handleGoogleSignIn} style={{ width:'100%',backgroundColor:'tomato',color:'white',border:'0',padding:'20px 0 20px 0', marginBottom:'50px' }}><FaGoogle /> Google Sign In</button>
+                                    }
+                                </div> */}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -184,4 +231,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default EmployeeLogin;

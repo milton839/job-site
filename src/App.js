@@ -8,6 +8,8 @@ import MakeAdmin from './Components/Admin/AdminPage/MakeAdmin';
 import PendingJob from './Components/Admin/AdminPage/PendingJob';
 import AddJob from './Components/Dashboard/DashboardPage/AddJob';
 import CandidateList from './Components/Dashboard/DashboardPage/CandidateList';
+import EmployerLogin from './Components/Employers/EmployeeLogin';
+import Employers from './Components/Employers/Employers';
 import ApplyForm from './Components/Home/Home/ApplyForm';
 import Home from './Components/Home/Home/Home';
 import JobDetails from './Components/Home/Home/JobDetails';
@@ -24,23 +26,27 @@ function App() {
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Switch>
-          <PrivateRoute exact path="/">
-            <Home />
-          </PrivateRoute>
+          
           <Route path="/home">
             <Home />
           </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <PrivateRoute path="/jobDetails/:jobId">
+          <Route path="/jobDetails/:jobId">
             <JobDetails />
-          </PrivateRoute>
-          <PrivateRoute path="/addJob">
-            <AddJob />
-          </PrivateRoute>
+          </Route>
           <PrivateRoute path="/applyForm">
             <ApplyForm />
+          </PrivateRoute>
+          <Route path="/employers">
+            <Employers />
+          </Route>
+          <Route path="/payment/:employeePrice">
+            <PaymentEmployer />
+          </Route>
+          <Route path="/employeeLogin">
+            <EmployerLogin />
+          </Route>
+          <PrivateRoute path="/addJob">
+            <AddJob />
           </PrivateRoute>
           <PrivateRoute path="/candidate">
             <CandidateList />
@@ -51,11 +57,14 @@ function App() {
           <PrivateRoute path="/makeAdmin">
             <MakeAdmin />
           </PrivateRoute>
-          <PrivateRoute path="/payment">
-            <PaymentEmployer />
-          </PrivateRoute>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="*">
-            <NotFound></NotFound>
+            <NotFound />
           </Route>
         </Switch>
       </Router>

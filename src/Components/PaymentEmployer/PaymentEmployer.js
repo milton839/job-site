@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { UserContext } from '../../App';
 import ProcessPayment from '../ProcessPayment/ProcessPayment';
 import Navbar from '../Shared/Navbar/Navbar';
@@ -7,37 +8,49 @@ const PaymentEmployer = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
+    const {employeePrice} = useParams();
+
     const handlePaymentSuccess = paymentId =>{
-      const orderDetails = {
+      const employeeDetails = {
         ...loggedInUser,
         paymentId, 
-        orderTime: new Date()
+        paymentTime: new Date()
       };
 
-      fetch('https://car-service-839.herokuapp.com/addOrder/',{
-        method:'POST',
-        headers:{
-          'Content-Type':'application/json',
-        },
-        body:JSON.stringify(orderDetails)
-      })
-      .then(res => res.json())
-      .then(data => {
-        if(data){
-          alert('Your Payment Successfully Done')
-        }
-      })
+      // fetch('/',{
+      //   method:'POST',
+      //   headers:{
+      //     'Content-Type':'application/json',
+      //   },
+      //   body:JSON.stringify(orderDetails)
+      // })
+      // .then(res => res.json())
+      // .then(data => {
+      //   if(data){
+      //     alert('Your Payment Successfully Done')
+      //   }
+      // })
     }
     return (
         <div>
             <div>
                 <Navbar />
             </div>
-            <div className="container">
-                <h2 className="text-center mt-3">If Employer want to post job, he or she have to pay.</h2>
-                <div className="mt-5" style={{ margin:'0 auto' }}>
-                    <ProcessPayment handlePayment = {handlePaymentSuccess}></ProcessPayment>
+            <div className="container mt-5">
+              <div className="row m-auto d-flex justify-content-center">
+                <div class="card" style={{width: '50rem'}}>
+                    <div class="card-body">
+                      <h2 className="text-center">You have to pay: {employeePrice}</h2>
+                      <h2 className="text-center mt-3 pb-3" style={{color:'#242A33',fontSize:'25px', fontWeight:'bold'}}>Stripe Payment Method</h2>
+                      <div className="row d-flex justify-content-center">
+                        <div className="col-md-6 ">
+                          <ProcessPayment handlePayment = {handlePaymentSuccess}></ProcessPayment>
+                        </div>
+                        <h2 className="text-center">If you already pay for your account <Link to="/employeeLogin">Login</Link></h2>
+                      </div>
+                    </div>
                 </div>
+              </div>
             </div>
         </div>
     );

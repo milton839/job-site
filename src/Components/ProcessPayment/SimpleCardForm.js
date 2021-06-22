@@ -1,5 +1,5 @@
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useState } from 'react';
-import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 
 const SimpleCardForm = ({handlePayment}) => {
   const stripe = useStripe();
@@ -46,12 +46,11 @@ const SimpleCardForm = ({handlePayment}) => {
           paymentError && <p style={{color:'red'}}>{paymentError}</p>
       }
       {
-          paymentSuccess && <p style={{color:'green'}}>Your payment is successfully done</p>
+          paymentSuccess && <p style={{color:'green'}}>Your payment is successfully done and now you can go to next step by click login button</p>
       }
       <br></br>
-      <button className="btn btn-primary" type="submit" disabled={!stripe}>
-        Payment
-      </button>
+      <button className="btn btn-primary" type="submit" disabled={!stripe}>Payment</button>
+      
     </form>
   );
 };

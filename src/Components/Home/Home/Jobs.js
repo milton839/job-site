@@ -8,7 +8,7 @@ const Jobs = () => {
     const [search, setSearch] = useState('');
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [postPerPage, setPostPerPage] = useState(2);
+    const [postPerPage, setPostPerPage] = useState(20);
 
     useEffect(() => {
         fetch('https://job-hunting25.herokuapp.com/jobsFilter?search='+search)

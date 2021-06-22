@@ -33,7 +33,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light py-3" style={{backgroundColor:'#f8f9fa'}}>
             <div className="container-fluid">
-                <a target="_blank" rel="noreferrer" href="/home" className="navbar-brand ms-5 fs-3">Job Hunting</a>
+                <a rel="noreferrer" href="/" className="navbar-brand fw-bold ms-5 fs-3" style={{color:'#0CAA41'}}>Job Hunting</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
@@ -42,14 +42,12 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link to="/home" className="nav-link me-5 active" aria-current="page">Home</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to="/employers" className="nav-link me-5">For Employers</Link>
+                        </li>
                         {
                             (isEmployer || isAdmin) && <li className="nav-item">
                             <Link to="/addJob" className="nav-link me-5">Dashboard</Link>
-                        </li>
-                        }
-                        {
-                            (isEmployer || isAdmin) && <li className="nav-item">
-                            <Link to="/payment" className="nav-link me-5">Payment System</Link>
                         </li>
                         }
                         {
