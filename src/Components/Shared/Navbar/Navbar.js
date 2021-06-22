@@ -39,7 +39,7 @@ const Navbar = () => {
             body: JSON.stringify({ email: loggedInUser.email })
         })
             .then(res => res.json())
-            .then(data => setIsPremiumEmployer(data));
+            .then(data => setIsStandardEmployer(data));
     }, []);
 
     useEffect(() => {
@@ -49,7 +49,7 @@ const Navbar = () => {
             body: JSON.stringify({ email: loggedInUser.email })
         })
             .then(res => res.json())
-            .then(data => setIsPremiumEmployer(data));
+            .then(data => setIsBasicEmployer(data));
     }, []);
     
     return (
