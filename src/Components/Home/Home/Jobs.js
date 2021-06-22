@@ -8,7 +8,7 @@ const Jobs = () => {
     const [search, setSearch] = useState('');
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [postPerPage, setPostPerPage] = useState(100);
+    const [postPerPage, setPostPerPage] = useState(2);
 
     useEffect(() => {
         fetch('https://job-hunting25.herokuapp.com/jobsFilter?search='+search)
@@ -37,7 +37,9 @@ const Jobs = () => {
                         currentPosts.map(job => (job.jobPostStatus==='Approved') && <Job job={job}></Job>)
                     }
             </div>
-            <Pagination postPerPage={postPerPage} totalPosts={jobsData.length} paginate={paginate} />
+            <div>
+                    <Pagination postPerPage={postPerPage} totalPosts={jobsData.length} paginate={paginate} />
+            </div>
         </section>
     );
 };
