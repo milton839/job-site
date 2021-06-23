@@ -24,9 +24,9 @@ const CandidateList = () => {
                     <thead>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Phone</th>
                         <th>Position</th>
                         <th>Company</th>
+                        <th>Phone</th>
                         <th>Salary</th>
                         <th>Created Time</th>
                     </thead>
