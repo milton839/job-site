@@ -12,7 +12,7 @@ const Jobs = () => {
     const [postPerPage, setPostPerPage] = useState(20);
 
     useEffect(() => {
-        fetch('https://job-hunting25.herokuapp.com/jobsFilter?search='+search)
+        fetch(`https://job-hunting25.herokuapp.com/jobsFilter?search=${search}`)
         .then(response => response.json())
         .then(data => setJobsData(data))
     },[search]);
@@ -21,6 +21,7 @@ const Jobs = () => {
     const handleSearch = (event) =>{
         setSearch(event.target.value)
     }
+    console.log(search)
 
     const indexOfLastPost = currentPage * postPerPage;
     const indexOfFirstPost = indexOfLastPost - postPerPage;

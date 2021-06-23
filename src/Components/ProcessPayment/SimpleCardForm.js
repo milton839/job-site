@@ -49,7 +49,32 @@ const SimpleCardForm = ({handlePayment}) => {
           paymentSuccess && <p style={{color:'green'}}>Your payment is successfully done and now you can go to next step by click login button</p>
       }
       <br></br>
-      <button className="btn btn-primary" type="submit" disabled={!stripe}>Payment</button>
+      <button 
+        className="btn btn-primary" 
+        type="submit" 
+        disabled={!stripe}
+        data-bs-toggle="modal" 
+        data-bs-target="#payment"
+      >
+        Payment
+      </button>
+
+      <div className="modal fade" id="payment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog">
+              <div className="modal-content">
+              <div className="modal-header">
+                  <h5 className="modal-title text-center" id="exampleModalLabel">Welcome</h5>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="modal-body">
+                  Your payment is successfully done. 
+              </div>
+              <div className="modal-footer">
+                  <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              </div>
+              </div>
+          </div>
+      </div>
       
     </form>
   );

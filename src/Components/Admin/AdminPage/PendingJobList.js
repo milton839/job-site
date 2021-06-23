@@ -41,7 +41,7 @@ console.log(editStatus)
         })
         .then(response => response.json())
         .then(data => {
-            alert('Job post deleted successfully');
+            console.log(data);
         })
     }
     
@@ -80,7 +80,7 @@ console.log(editStatus)
                             You have been successful in updating the job post. 
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
                         </div>
                         </div>
                     </div>
@@ -102,10 +102,10 @@ console.log(editStatus)
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            You have been successful in updating the job post. 
+                            You have been successfully delete the job post. 
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
                         </div>
                         </div>
                     </div>
