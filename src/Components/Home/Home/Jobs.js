@@ -41,7 +41,7 @@ const Jobs = () => {
                         currentPosts.map(job => (job.jobPostStatus==='Approved') && <Job job={job}></Job>)
                     }
             </div>
-            <div>
+            <div className="d-flex justify-content-center mt-3">
                     <Pagination postPerPage={postPerPage} totalPosts={jobsData.length} paginate={paginate} />
             </div>
         </section>

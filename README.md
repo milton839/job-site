@@ -26,6 +26,8 @@ In the project directory, you can run:
     10. Private Route path
     11. Stripe payment system
     12. Responsive Design
+    13. pagination system implementation
+    14. Loading spinner
 
 # My Website Link
 
