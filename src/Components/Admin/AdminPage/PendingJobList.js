@@ -61,7 +61,8 @@ console.log(editStatus)
                     <option value="Approved">Approved</option>
                     <option value="Pending">Pending</option>
                 </select>
-                <button
+                <div className="d-flex justify-content-center">
+                    <button
                     className="ms-2 btn btn-primary"
                     onClick={()=>handleSubmit(_id)}
                     type="submit"
@@ -70,6 +71,7 @@ console.log(editStatus)
                         Update{" "}
                 </button>
                 <button type="button" class="btn btn-danger"onClick={()=>handleDelete(_id)}><FaTrashAlt /></button>
+                </div>
             </td>
             <td>{(new Date()).getFullYear()}</td>
         </tr>
