@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaTrashAlt } from 'react-icons/fa';
 
 const PendingJobList = (props) => {
 
@@ -35,6 +36,18 @@ console.log(editStatus)
             })
 
     }
+
+    const handleDelete = (id)=>{
+        console.log(id)
+        fetch(`https://job-hunting25.herokuapp.com/jobDelete/${id}`,{
+            method:'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Job post deleted successfully');
+        })
+    }
+    
     return (
         <tr>
             <td>{title}</td>
@@ -56,6 +69,7 @@ console.log(editStatus)
                 >
                         Update{" "}
                 </button>
+                <button type="button" class="btn btn-danger"onClick={()=>handleDelete(_id)}><FaTrashAlt /></button>
             </td>
             <td>{(new Date()).getFullYear()}</td>
         </tr>
