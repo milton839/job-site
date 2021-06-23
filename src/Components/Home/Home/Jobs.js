@@ -31,7 +31,7 @@ const Jobs = () => {
     return (
         <section className="container mb-5">
             <div className="search mx-5 mt-3 rounded-circle-pill">
-                <input onChange={handleSearch} className="form-control rounded-pill p-3" type="text" placeholder="Search your jobs"/>
+                <input onChange={handleSearch} className="form-control text-uppercase rounded-pill p-3" type="text" placeholder="Search your jobs"/>
             </div>
             <div className="row">
                 {
