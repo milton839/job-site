@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import Job from './Job';
 import Pagination from './Pagination';
 
@@ -33,6 +34,9 @@ const Jobs = () => {
                 <input onChange={handleSearch} className="form-control rounded-pill p-3" type="text" placeholder="Search your jobs"/>
             </div>
             <div className="row">
+                {
+                    jobsData.length === 0 && <Spinner style={{ margin:'0 auto' }} animation="grow" variant="primary" />
+                }
                     {
                         currentPosts.map(job => (job.jobPostStatus==='Approved') && <Job job={job}></Job>)
                     }
