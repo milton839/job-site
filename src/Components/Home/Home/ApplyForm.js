@@ -31,9 +31,7 @@ const ApplyForm = () => {
             body:JSON.stringify(applyData)
         })
         .then(res => {
-            if(res){
-                alert('Your Job apply successfully done');
-            }
+            console.log(res);
         });
         e.preventDefault();
     }
@@ -66,7 +64,30 @@ const ApplyForm = () => {
                             <input onBlur={handleBlur} type="number" className="form-control" name="salary" placeholder="Your Expected Salary"  required />
                         </div>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-primary" type="submit">Apply</button>
+                            <button 
+                                class="btn btn-primary"
+                                data-bs-toggle="modal" 
+                                data-bs-target="#apply" 
+                                type="submit"
+                            >
+                                Apply
+                            </button>
+                            <div className="modal fade" id="apply" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div className="modal-dialog">
+                                    <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title text-center" id="exampleModalLabel">Welcome</h5>
+                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div className="modal-body">
+                                        You have successfully completed your job apply. 
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>

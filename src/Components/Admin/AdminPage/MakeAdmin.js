@@ -27,9 +27,7 @@ const MakeAdmin = () => {
             body:JSON.stringify(adminData)
         })
         .then(res => {
-            if(res){
-                alert('Admin added successfully');
-            }
+            console.log(res);
         });
         e.preventDefault();
     }
@@ -48,7 +46,30 @@ const MakeAdmin = () => {
                     <div className="form-group">
                         <input onBlur={handleBlur} type="email" className="form-control" name="email" placeholder="Enter Email" required/>
                     </div>
-                    <button type="submit" className="btn btn-primary">Make Admin</button>
+                    <button 
+                        type="submit"
+                        className="btn btn-primary"
+                        data-bs-toggle="modal" 
+                        data-bs-target="#admin"
+                    >
+                        Make Admin
+                    </button>
+                        <div className="modal fade" id="admin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div className="modal-dialog">
+                                <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title text-center" id="exampleModalLabel">Welcome</h5>
+                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div className="modal-body">
+                                    You have successfully create an admin. 
+                                </div>
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
                 </form>
             </div>
         </div>
