@@ -46,7 +46,7 @@ const PaymentEmployer = () => {
                         <div className="col-md-6 ">
                           <ProcessPayment handlePayment = {handlePaymentSuccess}></ProcessPayment>
                         </div>
-                        <h2 className="text-center">If you already pay for your account <Link to={`/${employeepath}`}>Login</Link></h2>
+                        <h2 className="text-center">If you already pay for your account <Link to={`/${employeepath}`} style={{textDecoration:'none'}} ><span style={{color:'tomato'}}>Login</span></Link></h2>
                       </div>
                     </div>
                 </div>
