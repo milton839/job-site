@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../../App';
 import DashboardNav from '../Dashboard/DashboardNav';
 
 const AddJob = () => {
@@ -14,8 +15,20 @@ const AddJob = () => {
         setInfo(newInfo);
     }
 
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+        const [totalJobs, setTotalJobs] = useState([]);
+        useEffect(() => {
+            fetch('https://job-hunting25.herokuapp.com/jobListByEmail?email='+loggedInUser.email)
+            .then(response => response.json())
+            .then(data => setTotalJobs(data));
+        }, []);
+
+        const totalJob = totalJobs.length;
+
     const handleSubmit = (e) => {
         const jobsData ={
+            name:info.name,
+            email:loggedInUser.email,
             title: info.title,
             company: info.company,
             location: info.location,
@@ -28,6 +41,7 @@ const AddJob = () => {
             benefits: info.benefits,
             jobPostStatus: jobPostStatus,
         }
+
 
         const url = `https://job-hunting25.herokuapp.com/addJob`;
         fetch(url,{
@@ -51,8 +65,15 @@ const AddJob = () => {
             </div>
             <div className="text-center" style={{margin:'20px 40px 40px 290px'}}>
                 <div className="col-md-6">
+                        <h2>You Have left job post: {10-totalJob}</h2>
                     <h2 className="text-brand">Add a Job</h2>
                     <form onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <input onBlur={handleBlur} type="text" className="form-control" name="name" placeholder="Your Name"  required />
+                        </div>
+                        <div className="form-group">
+                            <input onBlur={handleBlur} type="text" className="form-control" name="email" value={loggedInUser.email}  required />
+                        </div>
                         <div className="form-group">
                             <input onBlur={handleBlur} type="text" className="form-control" name="title" placeholder="Job Title"  required />
                         </div>
