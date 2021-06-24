@@ -123,6 +123,7 @@ const EmployeeBasicLogin = () => {
         const employerData ={
             name: info.name,
             email: info.email,
+            role:"basicEmployer"
         }
 
         const url = `https://job-hunting25.herokuapp.com/addBasicEmployer`;
@@ -150,7 +151,7 @@ const EmployeeBasicLogin = () => {
             }
             setUser(signedInUser);
             setLoggedInUser(signedInUser);
-            history.replace(from);
+            history.push("/payment");
             })
             .catch((error) => {
                 const newUserInfo = { ...user };

@@ -9,7 +9,7 @@ import Navbar from '../Shared/Navbar/Navbar';
 
 
 
-const EmployeeStandardLogin = () => {
+const EmployeeBasicLogin = () => {
     document.title = "Login page";
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -123,10 +123,10 @@ const EmployeeStandardLogin = () => {
         const employerData ={
             name: info.name,
             email: info.email,
-            role:"standardEmployer"
+            role:"basicEmployer"
         }
 
-        const url = `https://job-hunting25.herokuapp.com/addStandardEmployer`;
+        const url = `https://job-hunting25.herokuapp.com/addBasicEmployer`;
         fetch(url,{
             method:'POST',
             headers:{
@@ -151,7 +151,7 @@ const EmployeeStandardLogin = () => {
             }
             setUser(signedInUser);
             setLoggedInUser(signedInUser);
-            history.push("/payment");
+            history.push("/pendingJob");
             })
             .catch((error) => {
                 const newUserInfo = { ...user };
@@ -232,4 +232,4 @@ const EmployeeStandardLogin = () => {
     );
 };
 
-export default EmployeeStandardLogin;
+export default EmployeeBasicLogin;

@@ -1,8 +1,11 @@
-.sign-in-card{
-    border-radius:20px;
+.sign-in-card {
+  border-radius: 20px;
 }
-/* .sign-in-head{
-    background-color:#009AF3;
-    color:#fff;
-    text-align: center;
-} */
+.account-role {
+  width: 100%;
+  height: 40px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}

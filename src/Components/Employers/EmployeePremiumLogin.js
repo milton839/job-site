@@ -123,6 +123,7 @@ const EmployeePremiumLogin = () => {
         const employerData ={
             name: info.name,
             email: info.email,
+            role:"premierEmployer"
         }
 
         const url = `https://job-hunting25.herokuapp.com/addEmployerPremium`;
@@ -150,7 +151,7 @@ const EmployeePremiumLogin = () => {
             }
             setUser(signedInUser);
             setLoggedInUser(signedInUser);
-            history.replace(from);
+            history.push("/payment");
             })
             .catch((error) => {
                 const newUserInfo = { ...user };

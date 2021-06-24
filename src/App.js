@@ -41,9 +41,9 @@ function App() {
           <Route path="/employers">
             <Employers />
           </Route>
-          <Route path="/payment/:employeepath">
+          <PrivateRoute path="/payment">
             <PaymentEmployer />
-          </Route>
+          </PrivateRoute>
           <Route path="/employeePremiumLogin">
             <EmployeePremiumLogin />
           </Route>
@@ -59,9 +59,9 @@ function App() {
           <PrivateRoute path="/candidate">
             <CandidateList />
           </PrivateRoute>
-          <PrivateRoute path="/pendingJob">
+          <Route path="/pendingJob">
             <PendingJob />
-          </PrivateRoute>
+          </Route>
           <PrivateRoute path="/makeAdmin">
             <MakeAdmin />
           </PrivateRoute>

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { UserContext } from '../../App';
 import ProcessPayment from '../ProcessPayment/ProcessPayment';
 import Navbar from '../Shared/Navbar/Navbar';
@@ -8,28 +8,31 @@ const PaymentEmployer = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-    const {employeepath} = useParams();
+    
+    const history = useHistory();
 
     const handlePaymentSuccess = paymentId =>{
-      const employeeDetails = {
+      const payment = {
         ...loggedInUser,
         paymentId, 
         paymentTime: new Date()
       };
 
-      // fetch('/',{
-      //   method:'POST',
-      //   headers:{
-      //     'Content-Type':'application/json',
-      //   },
-      //   body:JSON.stringify(orderDetails)
-      // })
-      // .then(res => res.json())
-      // .then(data => {
-      //   if(data){
-      //     alert('Your Payment Successfully Done')
-      //   }
-      // })
+      fetch('http://localhost:4000/payment/',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json',
+        },
+        body:JSON.stringify(payment)
+      })
+      .then(res => res.json())
+      .then(data => {
+        
+          setTimeout(() =>{
+            history.push('/addJob')
+          },2000)
+        
+      })
     }
     return (
         <div>
@@ -46,7 +49,7 @@ const PaymentEmployer = () => {
                         <div className="col-md-6 ">
                           <ProcessPayment handlePayment = {handlePaymentSuccess}></ProcessPayment>
                         </div>
-                        <h2 className="text-center">If you already pay for your account <Link to={`/${employeepath}`} style={{textDecoration:'none'}} ><span style={{color:'tomato'}}>Login</span></Link></h2>
+                        
                       </div>
                     </div>
                 </div>

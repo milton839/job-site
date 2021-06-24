@@ -8,9 +8,9 @@ const EmployeeTypeView = (props) => {
             <div class="card p-5 text-center" style={{width: '22rem'}}>
                 <div className="">
                     <h2 className="text-uppercase fw-bold">{type}</h2>
-                    <p className="fs-3">{post}</p>
+                    <p className="fs-3">{post} hours per month</p>
                     <h3>{price}</h3>
-                    <Link to={`/payment/${path}`}>
+                    <Link to={`/${path}`}>
                         <button className="btn btn-success">Select account</button>
                     </Link>
                 </div>

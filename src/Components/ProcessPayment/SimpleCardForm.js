@@ -53,13 +53,13 @@ const SimpleCardForm = ({handlePayment}) => {
         className="btn btn-primary" 
         type="submit" 
         disabled={!stripe}
-        data-bs-toggle="modal" 
-        data-bs-target="#payment"
+        // data-bs-toggle="modal" 
+        // data-bs-target="#payment"
       >
         Payment
       </button>
 
-      <div className="modal fade" id="payment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      {/* <div className="modal fade" id="payment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog">
               <div className="modal-content">
               <div className="modal-header">
@@ -74,7 +74,7 @@ const SimpleCardForm = ({handlePayment}) => {
               </div>
               </div>
           </div>
-      </div>
+      </div> */}
       
     </form>
   );
