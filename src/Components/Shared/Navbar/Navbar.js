@@ -65,7 +65,7 @@ const Navbar = () => {
                             <Link to="/home" className="nav-link me-5 active" aria-current="page">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/employers" className="nav-link me-5">For Employers</Link>
+                            <Link to="/employers" className="nav-link me-5">For Employer</Link>
                         </li>
                         {
                             (isPremiumEmployer || isStandardEmployer || isBasicEmployer || isAdmin) && <li className="nav-item">

@@ -14,10 +14,6 @@ const EmployeeTypeView = (props) => {
                     <Link to={`/${path}`}>
                         <button className="btn btn-success">Select account</button>
                     </Link>
-
-                    <Link to={`employ/${post}`} style={{display:'none'}}>
-                        <button className="btn btn-success">Select account</button>
-                    </Link>
                 </div>
             </div>
         </div>

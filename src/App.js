@@ -53,9 +53,6 @@ function App() {
           <Route path="/employeeBasicLogin">
             <EmployeeBasicLogin />
           </Route>
-          <Route path="/employ/:post">
-            <JobDetails />
-          </Route>
           <PrivateRoute path="/addJob">
             <AddJob />
           </PrivateRoute>
