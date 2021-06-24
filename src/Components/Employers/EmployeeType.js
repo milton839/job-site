@@ -28,7 +28,9 @@ const EmployeeType = () => {
             <h2 className="text-center pb-3" style={{color:'#242A33',fontSize:'40px', fontWeight:'bold'}}>Choose Your Account</h2>
             <div className="row">
                 {
-                    employeeType.map(eType =><EmployeeTypeView eType={eType} key={eType.type}></EmployeeTypeView>)
+                    employeeType.map(eType =>
+                        <EmployeeTypeView eType={eType} key={eType.type}></EmployeeTypeView>
+                    )
                 }
             </div>
         </div>

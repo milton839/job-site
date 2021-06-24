@@ -1,8 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import DashboardNav from '../Dashboard/DashboardNav';
 
 const AddJob = () => {
+
+    const {post} = useParams();
+    console.log(post);
 
     const [info, setInfo] = useState({});
     
